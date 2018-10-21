@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <title>Project Ora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="styleIndex.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        </head>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<body>
+    <!-- Header -->
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+     
+      <div class="w3-center">
+        <h1 class="w3-xxxlarge w3-animate-bottom">Project Ora</h1>
+        <div class="w3-padding-32">
+          <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">MORE ABOUT THE PROJECT</button>
+        </div>
+      </div>
+    </header>
+
+    
+    <div class="w3-container">
+      <hr>
+      <div class="w3-center">
+        <h2>Please answer the following question</h2>
+         <!-- <p w3-class="w3-large">Don't worry. W3.CSS takes care of your tables.</p>-->
+      </div>
+
+        
+            
+           <p>When using roads, does the company require interprovincial or international highway/road transport?
+           </p>
+        
+            <button id="fed">Yes</button>
+            <button id="next">No</button>
+        
+    <hr>
+
+    
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark w3-padding-16">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Freshmen at uOttawa</a></p>
+      <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">   
+      </div>
+      <p>Remember to check out our  <a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">GitHub</a></p>
+    </footer>
+
+    <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
+     <script>
+    
+      document.getElementById("next").onclick = function(){
+        location.href = "Non_Federal_Langing.html"; 
+      };
+      document.getElementById("fed").onclick = function(){
+       
+          var name;
+   
+    
+        $.ajax({
+            url: "name.txt",
+            async: false,
+            success: function (name1){
+             
+                name = name1;
+            }
+        });
+    
+
+          var data = 'data='+"<name>"+name+"</name>";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function(){
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+          
+	  }
+	}
+	xmlhttp.open("POST","database.php",true);
+        //Must add this request header to XMLHttpRequest request for POST
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send(data);
+        location.href = "Federal_Landing.html" ; 
+      };
+
+        
+    </script>
+
+  </body>
+</html>

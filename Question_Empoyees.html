@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <title>Project Ora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="styleIndex.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        </head>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<body>
+    <!-- Header -->
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+     
+      <div class="w3-center">
+        <h1 class="w3-xxxlarge w3-animate-bottom">Project Ora</h1>
+        <div class="w3-padding-32">
+          <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">MORE ABOUT THE PROJECT<br>
+        </div>
+      </div>
+    </header>
+
+    
+    <div class="w3-container">
+      <hr>
+      <div class="w3-center">
+        <h2>What sector does your complaint belong to?</h2>
+        
+          <form style="text-align: left">
+               
+            <input type="checkbox" name="sector"> Banks <br>
+          <input type="checkbox" name="sector"> Marine shipping/ferry/port services <br>
+            <input type="checkbox" name="sector"> Marine shipping/ferry/port services<br>
+            <input type="checkbox" name="sector"> Air transportation: Airports/aerodromes/airlines<br>
+            <input type="checkbox" name="sector"> Uranium mining and processing<br>
+            <input type="checkbox" name="sector"> Radio and television broadcasting<br>
+            <input type="checkbox" name="sector"> Grain elevators, feed and seed mills<br>
+            <input type="checkbox" name="sector"> Fisheries <br>
+            <input type="checkbox" name="sector"> Federal crown corporations<br>
+          <input type="checkbox" id="rail"> Railway<br>
+           <input type="checkbox" name="sector" id="trans"> Road transportation<br>
+           <input type="checkbox" name="sector" id="can"> Canals<br>
+           <input type="checkbox" name="sector" id="pipe"> Pipelines<br>
+           <input type="checkbox" name="sector" id="tun"> Tunnels<br>
+           <input type="checkbox" name="sector" id="brid"> Bridges<br>
+           <input type="checkbox" name="sector" id="nation"> First Nations<br>
+    
+          
+           
+          </form>
+          <div style="text-align: left">
+              <button id="radio" >Submit</button>
+          </div>
+           
+          
+        
+    <hr>
+
+    
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark w3-padding-16">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Freshmen at uOttawa</a></p>
+      <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">   
+      </div>
+      <p>Remember to check out our  <a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">GitHub</a></p>
+    </footer>
+
+    <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
+   <script>
+       document.getElementById("radio").onclick = function(){
+           var n = $("input:checked").length;
+           if($("#rail:checked").length > 0){
+               location.href = "railway.html" ;
+           }
+           else if($("#trans:checked").length > 0){
+                   location.href = "road_transportation.html" ;
+                   }
+                   else if($("#can:checked").length > 0){
+                   location.href = "canals.html" ;
+                   }
+           else if($("#pipe:checked").length > 0){
+                   location.href = "pipelines.html" ;
+                   }
+                   else if($("#tun:checked").length > 0){
+                   location.href = "tunnels.html" ;
+                   }
+           else if($("#brid:checked").length > 0){
+                   location.href = "bridges.html" ;
+                   }
+                   else if($("#nation:checked").length > 0){
+                   location.href = "first_nations.html" ;
+                   }
+           else if(n > 0){
+               var name;
+   
+    
+        $.ajax({
+            url: "name.txt",
+            async: false,
+            success: function (name1){
+              
+                name = name1;
+            }
+        });
+    
+
+          var data = 'data='+"<name>"+name+"</name>";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function(){
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+          
+	  }
+	}
+	xmlhttp.open("POST","database.php",true);
+        //Must add this request header to XMLHttpRequest request for POST
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send(data);
+        location.href = "Federal_Landing.html" ; 
+
+           }
+           else{
+               location.href = "Non_Federal_Langing.html" ;
+           }
+       }
+       
+        
+    </script>
+
+  </body>
+</html>
